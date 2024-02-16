@@ -1,13 +1,5 @@
-import {
-  ThemeProvider,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from '@mui/material'
-import { Poppins } from '@next/font/google'
+import { ThemeProvider, Box } from '@mui/material'
 import theme from './theme'
-import { ExpandMore } from '@mui/icons-material'
 import NavBar from '@/components/navbar/NavBar'
 
 export const metadata = {
@@ -18,12 +10,36 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ThemeProvider theme={theme}>
-        <body>
-          <NavBar />
-          {children}
-        </body>
-      </ThemeProvider>
+      <body
+        suppressHydrationWarning={true}
+        style={{ margin: '0', backgroundColor: '#FBFCFC' }}
+      >
+        <ThemeProvider theme={theme}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              bgcolor: '#FBFCFC',
+            }}
+          >
+            <NavBar />
+            <Box
+              sx={{
+                bgcolor: 'secondary.dark',
+                marginX: {
+                  lg: '10rem',
+                  md: '8rem',
+                  sm: '5rem',
+                  xs: '2rem',
+                  minHeight: '100%',
+                },
+              }}
+            >
+              {children}
+            </Box>
+          </Box>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@mui/material'
 
-export default function page() {
+export default function paged() {
   return (
     <div>
       <Button
