@@ -1,9 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Typography } from '@mui/material'
+import { Typography, Container, Divider, Box } from '@mui/material'
 import fetchproduct from '@/services/fetchproduct'
+import Discounts from '../../components/navbar/store/Discounts'
+import Items from '../../components/navbar/store/Items'
 
-export default function pages() {
+export default function Store() {
   const [productData, setData] = useState([])
 
   useEffect(() => {
@@ -18,16 +20,16 @@ export default function pages() {
 
     fetchData()
   }, [])
-
   console.log(productData)
 
   return (
-    <div>
-      {productData.map(product => (
-        <Typography key={product.id} variant="h5" color="initial">
-          {product.title}
-        </Typography>
-      ))}
-    </div>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minWidth: '100%' }}>
+      <Discounts />
+
+      <Typography variant="h5" color="initial" sx={{ marginY: '2rem' }}>
+        Top Products
+      </Typography>
+      <Items productData={productData} />
+    </Box>
   )
 }

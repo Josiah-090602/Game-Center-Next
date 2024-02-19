@@ -1,13 +1,17 @@
 'use client'
-import { Poppins } from 'next/font/google'
+
 import { createTheme } from '@mui/material'
 
-const poppins = Poppins({
-  subsets: ['latin', 'devanagari'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-})
-
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   palette: {
     primary: {
       main: '#F46863',
@@ -22,7 +26,6 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: poppins.style.fontFamily,
     h1: { fontSize: '5rem' },
     h2: { fontSize: '4rem' },
     h3: { fontSize: '3rem' },

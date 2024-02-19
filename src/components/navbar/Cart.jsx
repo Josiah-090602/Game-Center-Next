@@ -4,7 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 export default function Cart() {
   return (
     <div>
-      <IconButton color="primary" href="/cart">
+      <IconButton color="primary" href="/store/cart">
         <ShoppingCartIcon />
       </IconButton>
     </div>

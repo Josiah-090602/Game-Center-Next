@@ -1,6 +1,7 @@
 import { ThemeProvider, Box } from '@mui/material'
 import theme from './theme'
 import NavBar from '@/components/navbar/NavBar'
+import Footer from '@/components/footer/Footer'
 
 export const metadata = {
   title: 'Next.js',
@@ -12,32 +13,37 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         suppressHydrationWarning={true}
-        style={{ margin: '0', backgroundColor: '#FBFCFC' }}
+        style={{
+          margin: '0',
+          backgroundColor: '#FBFCFC',
+          width: '100%',
+        }}
       >
         <ThemeProvider theme={theme}>
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              bgcolor: '#FBFCFC',
             }}
           >
             <NavBar />
             <Box
               sx={{
-                bgcolor: 'secondary.dark',
                 marginX: {
                   lg: '10rem',
                   md: '8rem',
                   sm: '5rem',
                   xs: '2rem',
-                  minHeight: '100%',
                 },
+                marginBottom: '1rem ',
+                marginTop: '5rem ',
+                minHeight: '100%',
               }}
             >
               {children}
             </Box>
           </Box>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

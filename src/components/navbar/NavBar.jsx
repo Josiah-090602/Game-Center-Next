@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 
 export default function NavBar() {
   return (
-    <div>
+    <>
       <Box
         sx={{
           display: 'flex',
@@ -19,6 +19,10 @@ export default function NavBar() {
           height: '5rem',
           color: 'secondary.contrastText',
           paddingX: { lg: '10rem', md: '8rem', sm: '5rem', xs: '2rem' },
+          position: 'fixed',
+          width: '100%',
+          boxSizing: 'border-box',
+          zIndex: '100',
         }}
       >
         <Box
@@ -47,6 +51,6 @@ export default function NavBar() {
           <Profile />
         </Box>
       </Box>
-    </div>
+    </>
   )
 }

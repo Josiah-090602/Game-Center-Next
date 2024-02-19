@@ -5,7 +5,7 @@ export default function Cart() {
   return (
     <div>
       <Typography variant="body1" color="initial">
-        OKIE
+        My Cart
       </Typography>
     </div>
   )

@@ -16,7 +16,7 @@ export default function Profie() {
       <Avatar
         onClick={handleClick}
         variant="circular"
-        src=""
+        src="/profile.jpg"
         alt=""
         sx={{ width: '30px', height: '30px' }}
       />
