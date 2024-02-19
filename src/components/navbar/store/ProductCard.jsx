@@ -28,6 +28,7 @@ export default function ProductCard({ product }) {
           width: '100%',
           p: 2,
           boxSizing: 'border-box',
+          borderRadius: '0',
         }}
       >
         <CardContent>

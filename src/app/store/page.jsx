@@ -1,26 +1,22 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Typography, Container, Divider, Box } from '@mui/material'
-import fetchproduct from '@/services/fetchproduct'
+import { Typography, Divider, Box } from '@mui/material'
 import Discounts from '../../components/navbar/store/Discounts'
 import Items from '../../components/navbar/store/Items'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProductsAsync } from '@/redux/productSlice'
 
 export default function Store() {
-  const [productData, setData] = useState([])
+  const products = useSelector(state => state.products)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchproduct()
-        setData(data)
-      } catch (error) {
-        console.error(error)
-      }
+    if (products.status === 'idle') {
+      dispatch(fetchProductsAsync())
     }
+  }, [products.status, dispatch])
 
-    fetchData()
-  }, [])
-  console.log(productData)
+  console.log(products.data)
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minWidth: '100%' }}>
@@ -29,7 +25,7 @@ export default function Store() {
       <Typography variant="h5" color="initial" sx={{ marginY: '2rem' }}>
         Top Products
       </Typography>
-      <Items productData={productData} />
+      <Items productData={products.data} />
     </Box>
   )
 }

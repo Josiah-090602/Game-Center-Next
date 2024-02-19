@@ -2,6 +2,7 @@ import { ThemeProvider, Box } from '@mui/material'
 import theme from './theme'
 import NavBar from '@/components/navbar/NavBar'
 import Footer from '@/components/footer/Footer'
+import ReduxProvider from '@/redux/ReduxProvider'
 
 export const metadata = {
   title: 'Next.js',
@@ -10,42 +11,44 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        suppressHydrationWarning={true}
-        style={{
-          margin: '0',
-          backgroundColor: '#FBFCFC',
-          width: '100%',
-        }}
-      >
-        <ThemeProvider theme={theme}>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <NavBar />
+    <ReduxProvider>
+      <html lang="en">
+        <body
+          suppressHydrationWarning={true}
+          style={{
+            margin: '0',
+            backgroundColor: '#FBFCFC',
+            width: '100%',
+          }}
+        >
+          <ThemeProvider theme={theme}>
             <Box
               sx={{
-                marginX: {
-                  lg: '10rem',
-                  md: '8rem',
-                  sm: '5rem',
-                  xs: '2rem',
-                },
-                marginBottom: '1rem ',
-                marginTop: '5rem ',
-                minHeight: '100%',
+                display: 'flex',
+                flexDirection: 'column',
               }}
             >
-              {children}
+              <NavBar />
+              <Box
+                sx={{
+                  marginX: {
+                    lg: '10rem',
+                    md: '8rem',
+                    sm: '5rem',
+                    xs: '2rem',
+                  },
+                  marginBottom: '1rem ',
+                  marginTop: '5rem ',
+                  minHeight: '100%',
+                }}
+              >
+                {children}
+              </Box>
             </Box>
-          </Box>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ReduxProvider>
   )
 }
