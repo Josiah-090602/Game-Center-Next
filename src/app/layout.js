@@ -3,6 +3,9 @@ import theme from './theme'
 import NavBar from '@/components/navbar/NavBar'
 import Footer from '@/components/footer/Footer'
 import ReduxProvider from '@/redux/ReduxProvider'
+import 'react-toastify/dist/ReactToastify.css'
+
+import { ToastContainer } from 'react-toastify'
 
 export const metadata = {
   title: 'Next.js',
@@ -11,16 +14,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ReduxProvider>
-      <html lang="en">
-        <body
-          suppressHydrationWarning={true}
-          style={{
-            margin: '0',
-            backgroundColor: '#FBFCFC',
-            width: '100%',
-          }}
-        >
+    <html lang="en">
+      <body
+        suppressHydrationWarning={true}
+        style={{
+          margin: '0',
+          backgroundColor: '#FBFCFC',
+          width: '100%',
+        }}
+      >
+        <ReduxProvider>
+          <ToastContainer />
           <ThemeProvider theme={theme}>
             <Box
               sx={{
@@ -32,12 +36,11 @@ export default function RootLayout({ children }) {
               <Box
                 sx={{
                   marginX: {
-                    lg: '10rem',
+                    lg: '15rem',
                     md: '8rem',
                     sm: '5rem',
                     xs: '2rem',
                   },
-                  marginBottom: '1rem ',
                   marginTop: '5rem ',
                   minHeight: '100%',
                 }}
@@ -47,8 +50,8 @@ export default function RootLayout({ children }) {
             </Box>
             <Footer />
           </ThemeProvider>
-        </body>
-      </html>
-    </ReduxProvider>
+        </ReduxProvider>
+      </body>
+    </html>
   )
 }

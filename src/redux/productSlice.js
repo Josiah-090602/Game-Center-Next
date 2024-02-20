@@ -1,11 +1,13 @@
 'use client'
 import fetchproduct from '@/services/fetchproduct'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 const initialState = {
   data: [],
   status: 'idle',
   error: null,
+  carts: [],
 }
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -21,16 +23,41 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action) => {
-      state.data.push(action.payload)
+      const itemIndex = state.carts.findIndex(
+        item => item.id === action.payload.id,
+      )
+      if (itemIndex >= 0) {
+        state.carts[itemIndex].quantity += 1
+        toast.info('Added a product quantity'),
+          {
+            position: 'bottom-right',
+          }
+      } else {
+        const addedProduct = { ...action.payload, quantity: 1 }
+        state.carts.push(addedProduct)
+        toast.success('New product added to cart'),
+          {
+            position: 'bottom-right',
+          }
+      }
+      console.log(state.carts)
+    },
+    removeProduct: (state, action) => {
+      const updatedCart = state.carts.filter(
+        carts => carts.id !== action.payload.id,
+      )
+
+      state.carts = updatedCart
     },
   },
+
   extraReducers: builder => {
     builder
       .addCase(fetchProductsAsync.pending, state => {
-        state.status = 'loading'
+        state.status = 'idle'
       })
       .addCase(fetchProductsAsync.fulfilled, (state, action) => {
-        state.status = 'idle'
+        state.status = 'success'
         state.data = action.payload
       })
       .addCase(fetchProductsAsync.rejected, (state, action) => {
@@ -40,5 +67,5 @@ const productSlice = createSlice({
   },
 })
 
-export const { addProduct } = productSlice.actions
+export const { addProduct, removeProduct } = productSlice.actions
 export default productSlice.reducer

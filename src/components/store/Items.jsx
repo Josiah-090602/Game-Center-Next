@@ -5,6 +5,7 @@ import ProductCard from './ProductCard'
 export default function Items({ productData }) {
   return (
     //Top Rated
+
     <>
       <Box maxWidth="100%" display="flex" alignItems="center">
         <Grid
@@ -12,7 +13,6 @@ export default function Items({ productData }) {
           spacing={1}
           boxSizing="border-box"
           columns={{ xl: '5', lg: '5', md: '4', sm: '2', xs: '1' }}
-          row={2}
         >
           {productData.map(product => (
             <Grid item key={product.id} xs={1}>

@@ -7,9 +7,12 @@ import {
   Divider,
   Typography,
   Rating,
+  Grid,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import Actions from './Actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { addProduct } from '@/redux/productSlice'
 
 export const LineClamp = styled(Typography)(() => ({
   display: '-webkit-box',
@@ -19,6 +22,12 @@ export const LineClamp = styled(Typography)(() => ({
 }))
 
 export default function ProductCard({ product }) {
+  const products = useSelector(state => state.products)
+  const dispatch = useDispatch()
+
+  const handleAddProduct = () => {
+    dispatch(addProduct(product))
+  }
   return (
     <>
       <Card
@@ -45,8 +54,8 @@ export default function ProductCard({ product }) {
 
         <Box>
           <LineClamp
-            style={{ WebkitLineClamp: 1 }}
             fontSize={{ lg: '1rem', md: '0.8rem', sm: '15px', xs: '10px' }}
+            style={{ WebkitLineClamp: 1 }}
             variant="subtitle1"
             color="initial"
           >
@@ -62,7 +71,7 @@ export default function ProductCard({ product }) {
           />
         </Box>
         <Box sx={{ width: '100%' }}>
-          <Actions />
+          <Actions onClick={handleAddProduct} />
         </Box>
       </Card>
     </>
