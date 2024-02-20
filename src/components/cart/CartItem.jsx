@@ -2,7 +2,11 @@ import React from 'react'
 import { Button, Card, Box, Rating, Grid } from '@mui/material'
 import { LineClamp } from '@/components/store/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeProduct } from '@/redux/productSlice'
+import {
+  removeProduct,
+  decreaseQuantity,
+  addProduct,
+} from '@/redux/productSlice'
 
 import Typography from '@mui/material/Typography'
 import Quantity from './Quantity'
@@ -12,6 +16,14 @@ export default function CartItem({ item }) {
 
   const handleRemoveProduct = () => {
     dispatch(removeProduct(item))
+  }
+
+  const handleDecrease = () => {
+    dispatch(decreaseQuantity(item))
+  }
+
+  const handleIncrease = () => {
+    dispatch(addProduct(item))
   }
 
   let itemPricePerQuantity = item.price * item.quantity
@@ -56,7 +68,11 @@ export default function CartItem({ item }) {
           <strong>$ {item.price}</strong>
         </LineClamp>
 
-        <Quantity item={item} />
+        <Quantity
+          onDecrease={handleDecrease}
+          onIncrease={handleIncrease}
+          item={item}
+        />
 
         <LineClamp width="7rem" textAlign="center">
           <strong>$ {itemPricePerQuantity}</strong>

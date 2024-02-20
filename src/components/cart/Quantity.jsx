@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, Typography } from '@mui/material'
 
-export default function Quantity({ item }) {
+export default function Quantity({ item, onDecrease, onIncrease }) {
   return (
     <>
       <Box
@@ -27,6 +27,7 @@ export default function Quantity({ item }) {
           }}
           variant="contained"
           color="primary"
+          onClick={onDecrease}
         >
           -
         </Button>
@@ -54,6 +55,7 @@ export default function Quantity({ item }) {
             border: '1px solid',
             borderColor: 'primary.main',
           }}
+          onClick={onIncrease}
         >
           +
         </Button>

@@ -23,8 +23,8 @@ export default function RootLayout({ children }) {
           width: '100%',
         }}
       >
+        <ToastContainer position="bottom-right" />
         <ReduxProvider>
-          <ToastContainer />
           <ThemeProvider theme={theme}>
             <Box
               sx={{

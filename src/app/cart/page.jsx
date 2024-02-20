@@ -1,36 +1,45 @@
 'use client'
 import React from 'react'
-import { Typography, Box, Divider } from '@mui/material'
-
-import { useDispatch, useSelector } from 'react-redux'
+import { Typography, Box, Divider, Container } from '@mui/material'
+import { useSelector } from 'react-redux'
 import CartList from '@/components/cart/CartList'
-import { IceSkatingRounded } from '@mui/icons-material'
+import EmptyCart from '@/components/cart/EmptyCart'
 
 export default function Cart() {
   const cart = useSelector(state => state.products.carts)
-
-  console.log(cart)
 
   return (
     <>
       <Box
         sx={{
-          minHeight: '100vh',
-          border: '1px solid red',
-          p: 3,
+          height: '100vh',
+          p: 4,
           boxSizing: 'border-box',
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
         <Typography variant="h5" color="secondary.dark">
           <strong> My Shopping Cart</strong>
         </Typography>
+
         <Divider
           variant="fullWidth"
           orientation="horizontal"
           sx={{ marginY: '1rem' }}
         />
 
-        <CartList cartItems={cart} />
+        <Box
+          sx={{
+            border: '1px solid red',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          {cart.length === 0 ? <EmptyCart /> : <CartList cartItems={cart} />}
+        </Box>
       </Box>
     </>
   )

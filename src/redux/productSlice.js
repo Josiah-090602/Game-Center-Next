@@ -28,17 +28,11 @@ const productSlice = createSlice({
       )
       if (itemIndex >= 0) {
         state.carts[itemIndex].quantity += 1
-        toast.info('Added a product quantity'),
-          {
-            position: 'bottom-right',
-          }
+        toast.info('Added a product quantity')
       } else {
         const addedProduct = { ...action.payload, quantity: 1 }
         state.carts.push(addedProduct)
-        toast.success('New product added to cart'),
-          {
-            position: 'bottom-right',
-          }
+        toast.success('New product added to cart')
       }
       console.log(state.carts)
     },
@@ -48,6 +42,23 @@ const productSlice = createSlice({
       )
 
       state.carts = updatedCart
+      toast.error('Product removed from cart')
+    },
+    decreaseQuantity: (state, action) => {
+      const itemIndex = state.carts.findIndex(
+        item => item.id === action.payload.id,
+      )
+      if (state.carts[itemIndex].quantity > 1) {
+        state.carts[itemIndex].quantity -= 1
+        toast.info('Decreased a product quantity')
+      } else if (state.carts[itemIndex].quantity === 1) {
+        const updatedCart = state.carts.filter(
+          carts => carts.id !== action.payload.id,
+        )
+
+        state.carts = updatedCart
+        toast.error('Product removed from cart')
+      }
     },
   },
 
@@ -67,5 +78,6 @@ const productSlice = createSlice({
   },
 })
 
-export const { addProduct, removeProduct } = productSlice.actions
+export const { addProduct, removeProduct, decreaseQuantity } =
+  productSlice.actions
 export default productSlice.reducer
