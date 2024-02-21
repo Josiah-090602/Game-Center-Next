@@ -8,6 +8,7 @@ const initialState = {
   status: 'idle',
   error: null,
   carts: [],
+  previewItemCart: [],
   cartsTotalPrice: 0,
 }
 

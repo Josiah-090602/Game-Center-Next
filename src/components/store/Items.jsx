@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Box, Grid } from '@mui/material'
 import ProductCard from './ProductCard'
+import Link from 'next/link'
 
 export default function Items({ productData, activeFilter }) {
   const filteredData = productData.filter(
@@ -20,7 +21,14 @@ export default function Items({ productData, activeFilter }) {
         >
           {filteredData.map(product => (
             <Grid item key={product.id} xs={1}>
-              <ProductCard product={product} />
+              <Link
+                style={{ textDecoration: 'none' }}
+                href={`/store/${product.id}`}
+                target="_self"
+                passHref
+              >
+                <ProductCard product={product} />
+              </Link>
             </Grid>
           ))}
         </Grid>

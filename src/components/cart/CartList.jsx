@@ -10,7 +10,7 @@ export default function CartList({ cartItems }) {
           display: 'flex',
           flexDirection: 'column',
           gap: '10px',
-          border: '1px solid blue',
+
           padding: '10px',
           overflowY: 'scroll',
           scrollBehavior: 'smooth',

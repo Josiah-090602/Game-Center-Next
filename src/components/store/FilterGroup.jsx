@@ -9,8 +9,13 @@ export default function FilterGroup({
 }) {
   return (
     <>
-      <Box display="flex" justifyContent="space-between">
-        <ButtonGroup disableElevation color="secondary" aria-label="">
+      <Box display="flex" justifyContent="space-between" height="40px">
+        <ButtonGroup
+          disableElevation
+          color="secondary"
+          aria-label=""
+          size="small"
+        >
           <Button
             variant={!activeFilter ? 'contained' : 'outlined'}
             onClick={() => setActiveFilter('')}
@@ -51,9 +56,10 @@ export default function FilterGroup({
           value={searchQuery}
           label="Search Product"
           variant="outlined"
-          sx={{ width: '30%' }}
+          sx={{ width: '30%', minHeight: '50px' }}
           color="secondary"
           onChange={searchOnChage}
+          size="small"
         />
       </Box>
     </>

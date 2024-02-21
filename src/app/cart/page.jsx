@@ -16,7 +16,6 @@ export default function Cart() {
         sx={{
           height: '85.5vh',
           p: 4,
-
           display: 'flex',
           flexDirection: 'column',
         }}

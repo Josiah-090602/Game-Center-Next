@@ -20,7 +20,6 @@ export default function Store() {
     keys: ['title', 'category'],
     includeScore: 'true',
   })
-
   const searchResults = fuse.search(searchQuery)
   const queriedProducts = searchQuery
     ? searchResults.map(product => product.item)
