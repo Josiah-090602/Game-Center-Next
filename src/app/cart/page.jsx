@@ -1,9 +1,11 @@
 'use client'
 import React from 'react'
-import { Typography, Box, Divider, Container } from '@mui/material'
+import { Typography, Box, Divider, Container, Button } from '@mui/material'
 import { useSelector } from 'react-redux'
 import CartList from '@/components/cart/CartList'
 import EmptyCart from '@/components/cart/EmptyCart'
+import { Check } from '@mui/icons-material'
+import CheckOut from '@/components/cart/CheckOut'
 
 export default function Cart() {
   const cart = useSelector(state => state.products.carts)
@@ -12,16 +14,22 @@ export default function Cart() {
     <>
       <Box
         sx={{
-          height: '100vh',
+          height: '85.5vh',
           p: 4,
-          boxSizing: 'border-box',
+
           display: 'flex',
           flexDirection: 'column',
         }}
       >
-        <Typography variant="h5" color="secondary.dark">
-          <strong> My Shopping Cart</strong>
-        </Typography>
+        <Box display="flex" justifyContent="space-between">
+          <Typography variant="h5" color="secondary.dark">
+            <strong> My Shopping Cart</strong>
+          </Typography>
+
+          <Button variant="outlined" color="primary" href="/store">
+            Continue Shopping
+          </Button>
+        </Box>
 
         <Divider
           variant="fullWidth"
@@ -29,17 +37,14 @@ export default function Cart() {
           sx={{ marginY: '1rem' }}
         />
 
-        <Box
-          sx={{
-            border: '1px solid red',
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          {cart.length === 0 ? <EmptyCart /> : <CartList cartItems={cart} />}
-        </Box>
+        {cart.length === 0 ? (
+          <EmptyCart />
+        ) : (
+          <>
+            <CartList cartItems={cart} />
+            <CheckOut cartItems={cart} />{' '}
+          </>
+        )}
       </Box>
     </>
   )

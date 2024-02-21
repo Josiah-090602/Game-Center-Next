@@ -11,7 +11,7 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
         sx={{
           gap: '5px',
           border: '1px solid',
-          borderColor: 'primary.main',
+          borderColor: 'secondary.main',
           borderRadius: '5px',
           overflow: 'hidden',
         }}
@@ -22,11 +22,9 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
             height: '40px',
             minWidth: 'fit-content',
             borderRadius: '0',
-            border: '1px solid',
-            borderColor: 'primary.main',
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
           onClick={onDecrease}
         >
           -
@@ -47,13 +45,11 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
         <Button
           disableElevation
           variant="contained"
-          color="primary"
+          color="secondary"
           sx={{
             height: '40px',
             minWidth: 'fit-content',
             borderRadius: '0',
-            border: '1px solid',
-            borderColor: 'primary.main',
           }}
           onClick={onIncrease}
         >

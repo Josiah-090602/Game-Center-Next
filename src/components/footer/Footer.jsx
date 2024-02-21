@@ -15,7 +15,7 @@ export default function Footer() {
         }}
       >
         <Typography variant="body1" color="inherit">
-          I'm a Footer
+          &copy; 2024. All rights reserved
         </Typography>
       </Box>
     </>

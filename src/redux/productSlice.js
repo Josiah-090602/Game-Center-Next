@@ -8,6 +8,7 @@ const initialState = {
   status: 'idle',
   error: null,
   carts: [],
+  cartsTotalPrice: 0,
 }
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -60,6 +61,25 @@ const productSlice = createSlice({
         toast.error('Product removed from cart')
       }
     },
+    clearCartItems: (state, action) => {
+      state.carts = []
+      toast.error('Cart cleared')
+    },
+    getTotalPrice: (state, action) => {
+      let { total } = state.carts.reduce(
+        (totalPrice, carts) => {
+          const { price, quantity } = carts
+          const itemTotal = price * quantity
+
+          totalPrice.total += itemTotal
+          return totalPrice
+        },
+        {
+          total: 0,
+        },
+      )
+      state.cartsTotalPrice = total
+    },
   },
 
   extraReducers: builder => {
@@ -78,6 +98,11 @@ const productSlice = createSlice({
   },
 })
 
-export const { addProduct, removeProduct, decreaseQuantity } =
-  productSlice.actions
+export const {
+  addProduct,
+  removeProduct,
+  decreaseQuantity,
+  clearCartItems,
+  getTotalPrice,
+} = productSlice.actions
 export default productSlice.reducer

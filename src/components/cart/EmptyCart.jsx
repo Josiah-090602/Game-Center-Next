@@ -11,7 +11,8 @@ export default function EmptyCart() {
           alignItems: 'center',
           flexDirection: 'column',
           gap: '20px',
-          opacity: 0.5,
+          opacity: 0.4,
+          height: '100%',
         }}
       >
         <img src="/emptycart.svg" alt="" width="300px" />

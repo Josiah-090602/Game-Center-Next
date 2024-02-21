@@ -12,9 +12,10 @@ export default function CartList({ cartItems }) {
           gap: '10px',
           border: '1px solid blue',
           padding: '10px',
-          maxHeight: '80%',
-
-          boxSizing: 'border-box',
+          overflowY: 'scroll',
+          scrollBehavior: 'smooth',
+          height: '80%',
+          scrollbarWidth: cartItems.length > 3 ? 'thin' : 'none',
         }}
       >
         {cartItems.map(item => (

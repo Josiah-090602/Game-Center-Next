@@ -6,6 +6,8 @@ import ReduxProvider from '@/redux/ReduxProvider'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { ToastContainer } from 'react-toastify'
+import GlobalStyle from './GlobalStyle'
+import { Css } from '@mui/icons-material'
 
 export const metadata = {
   title: 'Next.js',

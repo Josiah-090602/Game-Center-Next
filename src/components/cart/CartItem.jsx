@@ -78,7 +78,7 @@ export default function CartItem({ item }) {
           <strong>$ {itemPricePerQuantity}</strong>
         </LineClamp>
 
-        <Button onClick={handleRemoveProduct}>Remove Item</Button>
+        <Button onClick={handleRemoveProduct}>Remove</Button>
       </Card>
     </>
   )
