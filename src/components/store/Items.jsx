@@ -10,7 +10,6 @@ export default function Items({ productData, activeFilter }) {
 
   return (
     //Top Rated
-
     <>
       <Box maxWidth="100%" display="flex" alignItems="center">
         <Grid
@@ -21,14 +20,7 @@ export default function Items({ productData, activeFilter }) {
         >
           {filteredData.map(product => (
             <Grid item key={product.id} xs={1}>
-              <Link
-                style={{ textDecoration: 'none' }}
-                href={`/store/${product.id}`}
-                target="_self"
-                passHref
-              >
-                <ProductCard product={product} />
-              </Link>
+              <ProductCard product={product} />
             </Grid>
           ))}
         </Grid>

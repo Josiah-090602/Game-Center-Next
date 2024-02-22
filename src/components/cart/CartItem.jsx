@@ -8,7 +8,6 @@ import {
   addProduct,
 } from '@/redux/productSlice'
 
-import Typography from '@mui/material/Typography'
 import Quantity from './Quantity'
 export default function CartItem({ item }) {
   const products = useSelector(state => state.products)

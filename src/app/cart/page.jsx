@@ -4,7 +4,6 @@ import { Typography, Box, Divider, Container, Button } from '@mui/material'
 import { useSelector } from 'react-redux'
 import CartList from '@/components/cart/CartList'
 import EmptyCart from '@/components/cart/EmptyCart'
-import { Check } from '@mui/icons-material'
 import CheckOut from '@/components/cart/CheckOut'
 
 export default function Cart() {

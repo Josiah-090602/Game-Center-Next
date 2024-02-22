@@ -8,7 +8,8 @@ const initialState = {
   status: 'idle',
   error: null,
   carts: [],
-  previewItemCart: [],
+  preOrdered: {},
+  preOrderedCount: 0,
   cartsTotalPrice: 0,
 }
 
@@ -81,6 +82,42 @@ const productSlice = createSlice({
       )
       state.cartsTotalPrice = total
     },
+    addPreOrder: (state, action) => {
+      state.preOrdered = action.payload
+      state.preOrderedCount = 1
+    },
+    increasePreOrder: (state, action) => {
+      state.preOrderedCount += 1
+    },
+    decreasePreOrder: (state, action) => {
+      if (state.preOrderedCount > 0) {
+        state.preOrderedCount -= 1
+      }
+    },
+
+    addPreOrdertoCarts: (state, action) => {
+      const itemIndex = state.carts.findIndex(
+        item => item.id === action.payload.id,
+      )
+      if (itemIndex >= 0 && state.preOrderedCount > 0) {
+        state.carts[itemIndex].quantity += state.preOrderedCount
+        toast.info('Added a product quantity')
+      } else if (state.preOrderedCount > 0) {
+        console.log(state.carts)
+        const preOrdered = {
+          ...state.preOrdered,
+          quantity: state.preOrderedCount,
+        }
+        state.carts.push(preOrdered)
+
+        toast.success('Pre-ordered item added to cart')
+
+        state.preOrderedCount = 1
+        state.preOrdered = {}
+      } else if (state.preOrderedCount === 0) {
+        toast.error('No pre-ordered item to add to cart')
+      }
+    },
   },
 
   extraReducers: builder => {
@@ -105,5 +142,9 @@ export const {
   decreaseQuantity,
   clearCartItems,
   getTotalPrice,
+  addPreOrder,
+  increasePreOrder,
+  decreasePreOrder,
+  addPreOrdertoCarts,
 } = productSlice.actions
 export default productSlice.reducer

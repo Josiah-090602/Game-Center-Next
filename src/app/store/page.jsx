@@ -16,14 +16,14 @@ export default function Store() {
   const [activeFilter, setActiveFilter] = useState('')
   //Search Filters (Fuse JS)
   const [searchQuery, setSearchQuery] = useState('')
-  const fuse = new Fuse(products.data.response, {
+  const fuse = new Fuse(products.data, {
     keys: ['title', 'category'],
     includeScore: 'true',
   })
   const searchResults = fuse.search(searchQuery)
   const queriedProducts = searchQuery
     ? searchResults.map(product => product.item)
-    : products.data.response
+    : products.data
 
   const handleSearch = e => {
     setSearchQuery(e.target.value)
@@ -34,6 +34,8 @@ export default function Store() {
       dispatch(fetchProductsAsync())
     }
   }, [products.status, dispatch])
+
+  console.log(products.carts)
 
   return (
     <Box
@@ -62,6 +64,7 @@ export default function Store() {
       </Box>
 
       <Items activeFilter={activeFilter} productData={queriedProducts} />
+      {console.log(products.data)}
     </Box>
   )
 }

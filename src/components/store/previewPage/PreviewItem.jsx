@@ -6,13 +6,34 @@ import {
   Divider,
   Rating,
   Stack,
+  Button,
 } from '@mui/material'
 import Quantity from '@/components/cart/Quantity'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  increasePreOrder,
+  decreasePreOrder,
+  addPreOrdertoCarts,
+} from '@/redux/productSlice'
 
-export default function PriviewItem({ item }) {
+export default function PreviewItem({ item }) {
+  const count = useSelector(state => state.products.preOrderedCount)
+  const dispatch = useDispatch()
+
+  const handleIncrease = () => {
+    dispatch(increasePreOrder())
+  }
+
+  const handleDecrease = () => {
+    dispatch(decreasePreOrder())
+  }
+
+  const handleAddPreOrder = () => {
+    dispatch(addPreOrdertoCarts(item))
+  }
+
   return (
     <>
-      {console.log(item)}
       <Box
         sx={{
           border: '1px solid red',
@@ -61,7 +82,14 @@ export default function PriviewItem({ item }) {
             <strong> $ {item.price}</strong>
           </Typography>
 
-          <Quantity item={item} />
+          <Quantity
+            item={count}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+          />
+          <Button variant="text" color="primary" onClick={handleAddPreOrder}>
+            Add to Cart
+          </Button>
         </Box>
       </Box>
     </>

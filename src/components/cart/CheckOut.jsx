@@ -9,7 +9,7 @@ export default function CheckOut() {
 
   useEffect(() => {
     dispatch(getTotalPrice())
-  }, [cart])
+  }, [cart, cart.quantity])
 
   const handleClear = () => {
     dispatch(clearCartItems())
@@ -21,7 +21,7 @@ export default function CheckOut() {
         justifyContent: 'space-between',
         height: '20%',
         alignItems: 'center',
-        p: 1,
+        p: 3,
       }}
     >
       <Box height="100%">

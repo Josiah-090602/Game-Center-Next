@@ -19,6 +19,7 @@ export default function CartList({ cartItems }) {
         }}
       >
         {cartItems.map(item => (
+          // <p key={item.id}>{item.title}</p>
           <CartItem key={item.id} item={item} />
         ))}
       </Box>

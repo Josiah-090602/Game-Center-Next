@@ -39,7 +39,7 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
           }}
         >
           <Typography variant="body1" color="initial">
-            {item.quantity}
+            {typeof item === 'number' ? item : item.quantity}
           </Typography>
         </Box>
         <Button
