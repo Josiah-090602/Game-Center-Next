@@ -6,8 +6,13 @@ import ReduxProvider from '@/redux/ReduxProvider'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { ToastContainer } from 'react-toastify'
-import GlobalStyle from './GlobalStyle'
-import { Css } from '@mui/icons-material'
+
+import { Poppins } from 'next/font/google'
+
+const poppins = Poppins({
+  subsets: ['latin', 'devanagari'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
 
 export const metadata = {
   title: 'Next.js',
@@ -35,6 +40,7 @@ export default function RootLayout({ children }) {
               }}
             >
               <NavBar />
+
               <Box
                 sx={{
                   marginX: {

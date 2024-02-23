@@ -15,6 +15,7 @@ import {
   decreasePreOrder,
   addPreOrdertoCarts,
 } from '@/redux/productSlice'
+import ActionButtons from './ActionButtons'
 
 export default function PreviewItem({ item }) {
   const count = useSelector(state => state.products.preOrderedCount)
@@ -40,25 +41,33 @@ export default function PreviewItem({ item }) {
           boxSizing: 'border-box',
           width: '100%',
           display: 'flex',
-          padding: '0 !important',
-          flexDirection: { md: 'row', sm: 'column' },
+          padding: 3,
+          flexDirection: { md: 'row', xs: 'column' },
+          gap: 2,
         }}
       >
-        <img
-          src={item.image}
-          alt={item.name}
-          style={{
-            width: '30%',
-            height: '500px',
-            objectFit: 'contain',
-            border: '1px solid black',
+        <Box
+          sx={{
+            width: { md: '50%', xs: '100%' },
+            height: { md: '500px', xs: '300px' },
+            objectFit: 'cover',
+            backgroundSize: { md: '60%', sm: '20%', xs: '40%' },
+            backgroundRepeat: 'no-repeat',
+            backgroundImage: `url(${item.image})`,
+            backgroundPosition: 'center',
+            border: '1px solid red',
           }}
-        />
+        ></Box>
 
         <Box
           p={{ md: 4, sm: 2 }}
           display="flex"
-          sx={{ gap: 2, flexDirection: 'column', width: '70%' }}
+          sx={{
+            gap: 2,
+            flexDirection: 'column',
+            width: { md: '70%', xs: '100%' },
+            justifyContent: 'space-between',
+          }}
         >
           <Typography variant="h5" color="initial">
             <strong> {item.title}</strong>
@@ -77,19 +86,35 @@ export default function PreviewItem({ item }) {
             </Typography>
           </Stack>
 
-          <Typography variant="h3" color="primary" mt={3} fontSize="2.4rem">
+          <Typography variant="body1" color="initial">
+            {item.description}
+          </Typography>
+
+          <Typography variant="h3" color="primary" fontSize="2.4rem">
             {' '}
             <strong> $ {item.price}</strong>
           </Typography>
+          <Stack
+            alignItems="center"
+            spacing={1}
+            direction="row"
+            divider={<Divider orientation="vertical" flexItem />}
+          >
+            <Quantity
+              item={count}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+            />
+            <Typography
+              variant="subtitle1"
+              color="initial"
+              sx={{ opacity: 0.4 }}
+            >
+              $ {item.price * count}
+            </Typography>
+          </Stack>
 
-          <Quantity
-            item={count}
-            onIncrease={handleIncrease}
-            onDecrease={handleDecrease}
-          />
-          <Button variant="text" color="primary" onClick={handleAddPreOrder}>
-            Add to Cart
-          </Button>
+          <ActionButtons onclick={handleAddPreOrder} />
         </Box>
       </Box>
     </>

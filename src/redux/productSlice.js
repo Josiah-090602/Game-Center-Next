@@ -33,7 +33,7 @@ const productSlice = createSlice({
         state.carts[itemIndex].quantity += 1
         toast.info('Added a product quantity')
       } else {
-        const addedProduct = { ...action.payload, quantity: 1 }
+        const addedProduct = { ...action.payload, quantity: 1, checked: false }
         state.carts.push(addedProduct)
         toast.success('New product added to cart')
       }
@@ -68,7 +68,9 @@ const productSlice = createSlice({
       toast.error('Cart cleared')
     },
     getTotalPrice: (state, action) => {
-      let { total } = state.carts.reduce(
+      const checkedProducts = state.carts.filter(item => item.checked)
+
+      let { total } = checkedProducts.reduce(
         (totalPrice, carts) => {
           const { price, quantity } = carts
           const itemTotal = price * quantity
@@ -94,7 +96,6 @@ const productSlice = createSlice({
         state.preOrderedCount -= 1
       }
     },
-
     addPreOrdertoCarts: (state, action) => {
       const itemIndex = state.carts.findIndex(
         item => item.id === action.payload.id,
@@ -107,6 +108,7 @@ const productSlice = createSlice({
         const preOrdered = {
           ...state.preOrdered,
           quantity: state.preOrderedCount,
+          checked: false,
         }
         state.carts.push(preOrdered)
 
@@ -116,6 +118,21 @@ const productSlice = createSlice({
         state.preOrdered = {}
       } else if (state.preOrderedCount === 0) {
         toast.error('No pre-ordered item to add to cart')
+      }
+    },
+    checkProduct: (state, action) => {
+      const itemIndex = state.carts.findIndex(
+        item => item.id === action.payload.id,
+      )
+      state.carts[itemIndex].checked = !state.carts[itemIndex].checked
+    },
+    checkAllProducts: (state, action) => {
+      const filter = state.carts.filter(item => item.checked === false)
+
+      if (filter.length > 0) {
+        state.carts.map(item => (item.checked = true))
+      } else {
+        state.carts.map(item => (item.checked = false))
       }
     },
   },
@@ -146,5 +163,7 @@ export const {
   increasePreOrder,
   decreasePreOrder,
   addPreOrdertoCarts,
+  checkProduct,
+  checkAllProducts,
 } = productSlice.actions
 export default productSlice.reducer

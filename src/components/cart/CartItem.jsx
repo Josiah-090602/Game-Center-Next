@@ -1,11 +1,12 @@
 import React from 'react'
-import { Button, Card, Box, Rating, Grid } from '@mui/material'
+import { Button, Card, Box, Rating, Checkbox } from '@mui/material'
 import { LineClamp } from '@/components/store/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   removeProduct,
   decreaseQuantity,
   addProduct,
+  checkProduct,
 } from '@/redux/productSlice'
 
 import Quantity from './Quantity'
@@ -25,6 +26,12 @@ export default function CartItem({ item }) {
     dispatch(addProduct(item))
   }
 
+  const handleCheckProduct = () => {
+    dispatch(checkProduct(item))
+  }
+
+  console.log(products.carts)
+
   let itemPricePerQuantity = item.price * item.quantity
   return (
     <>
@@ -40,6 +47,11 @@ export default function CartItem({ item }) {
           justifyContent: 'space-between',
         }}
       >
+        <Checkbox
+          label={item.title}
+          checked={item.checked}
+          onChange={handleCheckProduct}
+        />
         <img
           src={item.image}
           alt=""

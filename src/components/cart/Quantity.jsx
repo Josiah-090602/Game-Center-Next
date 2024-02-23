@@ -6,13 +6,13 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
     <>
       <Box
         display="flex"
-        height="40px"
+        height="40px "
         width="fit-content"
         sx={{
           gap: '5px',
           border: '1px solid',
           borderColor: 'secondary.main',
-          borderRadius: '5px',
+          borderRadius: '0',
           overflow: 'hidden',
         }}
       >
@@ -30,6 +30,7 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
           -
         </Button>
         <Box
+          helperText="Incorrect entry."
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -42,6 +43,7 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
             {typeof item === 'number' ? item : item.quantity}
           </Typography>
         </Box>
+
         <Button
           disableElevation
           variant="contained"

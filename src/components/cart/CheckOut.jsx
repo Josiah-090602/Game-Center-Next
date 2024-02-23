@@ -9,7 +9,9 @@ export default function CheckOut() {
 
   useEffect(() => {
     dispatch(getTotalPrice())
-  }, [cart, cart.quantity])
+  }, [cart, cart.checked])
+
+
 
   const handleClear = () => {
     dispatch(clearCartItems())
