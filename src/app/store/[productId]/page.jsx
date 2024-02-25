@@ -17,7 +17,7 @@ export default function ProductDetails({ params }) {
         sx={{ border: '1px solid black', p: 2, flexDirection: 'column' }}
       >
         <PreviewItem item={item} />
-        <OtherProducts items={products} />
+        {/* <OtherProducts items={products} /> */}
       </Box>
     </>
   )

@@ -42,8 +42,16 @@ export default function Store() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minWidth: '100%',
+        width: '100%',
         paddingBottom: 1,
+        paddingX: {
+          lg: '15rem',
+          md: '8rem',
+          sm: '1rem',
+          xs: '1rem',
+        },
+        border: '1px solid red',
+        boxSizing: 'border-box',
       }}
     >
       <Discounts />

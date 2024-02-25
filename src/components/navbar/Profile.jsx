@@ -20,31 +20,30 @@ export default function Profie() {
         alt=""
         sx={{ width: '30px', height: '30px' }}
       />
-      <Box sx={{ bgcolor: 'secondary.dark' }}>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
-          sx={{ marginTop: 1 }}
-        >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <Divider variant="fullWidth" orientation="horizontal" />
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
-      </Box>
+
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+        sx={{ marginTop: 1 }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <Divider variant="fullWidth" orientation="horizontal" />
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
     </div>
   )
 }

@@ -43,14 +43,9 @@ export default function RootLayout({ children }) {
 
               <Box
                 sx={{
-                  marginX: {
-                    lg: '15rem',
-                    md: '8rem',
-                    sm: '5rem',
-                    xs: '2rem',
-                  },
                   marginTop: '5rem ',
-                  minHeight: '100%',
+                  minHegiht: '100%',
+                  boxSizing: 'border-box',
                 }}
               >
                 {children}

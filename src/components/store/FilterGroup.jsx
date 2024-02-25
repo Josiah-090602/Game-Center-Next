@@ -9,12 +9,19 @@ export default function FilterGroup({
 }) {
   return (
     <>
-      <Box display="flex" justifyContent="space-between" height="40px">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        height="auto"
+        flexDirection={{ md: 'row', xs: 'column' }}
+        gap={1}
+      >
         <ButtonGroup
           disableElevation
           color="secondary"
+          sx={{ height: '40px !important' }}
           aria-label=""
-          size="small"
+          width={{ md: '50%', xs: '100%' }}
         >
           <Button
             variant={!activeFilter ? 'contained' : 'outlined'}
@@ -56,7 +63,7 @@ export default function FilterGroup({
           value={searchQuery}
           label="Search Product"
           variant="outlined"
-          sx={{ width: '30%', minHeight: '50px' }}
+          sx={{ width: { md: '40%', xs: '100%' }, minHeight: '50px' }}
           color="secondary"
           onChange={searchOnChage}
           size="small"

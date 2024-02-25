@@ -2,10 +2,10 @@
 import React, { useState } from 'react'
 import { Box, Typography, Stack, IconButton } from '@mui/material'
 import Links from './links/Links'
-import AdjustIcon from '@mui/icons-material/Adjust'
 import Profile from './Profile'
 import Cart from './Cart'
 import MenuIcon from '@mui/icons-material/Menu'
+import Logo from './Logo'
 
 export default function NavBar() {
   return (
@@ -25,22 +25,13 @@ export default function NavBar() {
           zIndex: '100',
         }}
       >
-        <Box
-          sx={{ display: 'flex', alignItems: 'center', color: 'primary.dark' }}
-        >
-          <AdjustIcon fontSize="medium" />
-          <Typography variant="h5" color="white">
-            <span style={{ color: '#CB5652', fontWeight: '700' }}>SHOP</span>
-            Center
-          </Typography>
-        </Box>
-
+        {' '}
+        <Logo />
         <Box display={{ md: 'none', sm: 'flex' }}>
           <IconButton color="primary">
             <MenuIcon />
           </IconButton>
         </Box>
-
         <Box
           display={{ md: 'flex', xs: 'none' }}
           alignItems="center"
