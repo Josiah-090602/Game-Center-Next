@@ -15,8 +15,8 @@ const logos = [
 
 export default function Sponsors() {
   return (
-    <Box width="70%" sx={{ boxSizing: 'border-box' }}>
-      <Grid container spacing={1} columns={{ md: 4, sm: 2, xs: 1 }}>
+    <Box width="80%" sx={{ boxSizing: 'border-box' }}>
+      <Grid container spacing={2} columns={{ md: 4, sm: 2, xs: 1 }}>
         {logos.map((logo, index) => (
           <Grid item key={index} xs={1}>
             <Paper
@@ -35,9 +35,7 @@ export default function Sponsors() {
                   opacity: 1,
                 },
               }}
-            >
-              {/* <img src={logo} alt="sponsor" style={logoStyles} /> */}
-            </Paper>
+            ></Paper>
           </Grid>
         ))}
       </Grid>

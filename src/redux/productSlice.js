@@ -135,6 +135,30 @@ const productSlice = createSlice({
         state.carts.map(item => (item.checked = false))
       }
     },
+    buyNow: (state, action) => {
+      const itemIndex = state.carts.findIndex(
+        item => item.id === action.payload.id,
+      )
+      if (itemIndex >= 0 && state.preOrderedCount > 0) {
+        state.carts[itemIndex].quantity += state.preOrderedCount
+        toast.info('Added a product quantity')
+      } else if (state.preOrderedCount > 0) {
+        console.log(state.carts)
+        const preOrdered = {
+          ...state.preOrdered,
+          quantity: state.preOrderedCount,
+          checked: true,
+        }
+        state.carts.push(preOrdered)
+
+        toast.success('Pre-ordered item added to cart')
+
+        state.preOrderedCount = 1
+        state.preOrdered = {}
+      } else if (state.preOrderedCount === 0) {
+        toast.error('No pre-ordered item to add to cart')
+      }
+    },
   },
 
   extraReducers: builder => {
@@ -165,5 +189,6 @@ export const {
   addPreOrdertoCarts,
   checkProduct,
   checkAllProducts,
+  buyNow,
 } = productSlice.actions
 export default productSlice.reducer

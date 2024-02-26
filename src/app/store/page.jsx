@@ -50,7 +50,7 @@ export default function Store() {
           sm: '1rem',
           xs: '1rem',
         },
-        border: '1px solid red',
+        bgcolor: 'grey.100',
         boxSizing: 'border-box',
       }}
     >

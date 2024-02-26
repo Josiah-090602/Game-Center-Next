@@ -2,21 +2,27 @@ import React from 'react'
 import { Box, Stack, Typography } from '@mui/material'
 import Intro from '@/components/home/Intro'
 import Sponsors from '@/components/home/Sponsors'
+import About from '@/components/home/About'
+import Reasons from '@/components/home/Reasons'
+import Brands from '@/components/home/Brands'
+import Customer from '@/components/home/Customer'
 
 const boxStyles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   boxSizing: 'border-box',
-  padding: { md: '4rem', xs: '2rem' },
+  flexDirection: 'column',
+  p: 0,
 }
 
 export default function Home() {
   return (
     <>
+      {/* Hero */}
       <Box
         sx={{
-          height: '70vh',
+          height: '92vh',
           backgroundImage: 'url(/heroBackground.png)',
           objectFit: 'cover',
           backgroundSize: 'cover',
@@ -28,54 +34,70 @@ export default function Home() {
         <Intro />
       </Box>
 
+      {/* //Sponsors */}
       <Box
         sx={{
           ...boxStyles,
           bgcolor: 'grey.200',
           flexDirection: 'column',
           gap: 3,
+          padding: { md: '4rem', xs: '2rem' },
         }}
       >
         <Typography variant="h4" color="secondary.dark">
-          OUR SPONSORS
+          Our Sponsors
         </Typography>
 
         <Sponsors />
       </Box>
-
+      {/* //About Us */}
       <Box sx={{ ...boxStyles }}>
-        <Stack spacing={3} direction={{ md: 'row', xs: 'column-reverse' }}>
-          <Box
-            width={{ md: '50%', xs: '100%' }}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexDirection: 'column',
-            }}
-          >
-            <Typography variant="h4" color="secondary.dark">
-              About Us
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              fontSize={{ md: '1.2rem', xs: '1rem' }}
-              color="secondary.dark"
-            >
-              Welcome to <strong>SHOPCenter!</strong> We’re more than just an
-              online shop; we’re a<br /> vibrant community of style enthusiasts,
-              trendsetters, and quality seekers. Let us introduce ourselves:
-            </Typography>
-          </Box>
+        <About boxStyles={boxStyles} />
+      </Box>
 
-          <Box sx={{ width: { md: '50%', xs: '100%' } }}>
-            <img
-              src="/about1.jpg"
-              alt="hero"
-              style={{ width: '100%', borderRadius: '1rem' }}
-            />
-          </Box>
-        </Stack>
-        {/* {/* <img src="/about2.jpg" alt="hero" style={{ width: '100%' }} /> */}
+      {/* Why Choose Us */}
+      <Box
+        sx={{
+          ...boxStyles,
+          bgcolor: 'grey.100',
+          padding: { md: '4rem', xs: '2rem' },
+          gap: 3,
+        }}
+      >
+        <Typography variant="h4" color="secondary.dark">
+          Why Choose Us?
+        </Typography>
+        <Reasons />
+      </Box>
+
+      {/* Partners */}
+      <Box sx={{ ...boxStyles, padding: { md: '4rem', xs: '2rem' } }}>
+        <Typography
+          variant="h4"
+          color="secondary.dark"
+          textAlign="center"
+          padding="1rem"
+        >
+          Our Partners
+        </Typography>
+
+        <Brands />
+      </Box>
+
+      {/*Our Happy customers*/}
+      <Box
+        sx={{
+          ...boxStyles,
+          bgcolor: 'grey.200',
+          padding: 4,
+          gap: 3,
+        }}
+      >
+        <Typography variant="h4" color="secondary.dark">
+          Our Happy Customers
+        </Typography>
+
+        <Customer />
       </Box>
     </>
   )

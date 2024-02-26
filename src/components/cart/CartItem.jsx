@@ -30,8 +30,6 @@ export default function CartItem({ item }) {
     dispatch(checkProduct(item))
   }
 
-  console.log(products.carts)
-
   let itemPricePerQuantity = item.price * item.quantity
   return (
     <>

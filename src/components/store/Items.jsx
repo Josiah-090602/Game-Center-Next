@@ -16,7 +16,7 @@ export default function Items({ productData, activeFilter }) {
           container
           spacing={1}
           boxSizing="border-box"
-          columns={{ xl: '5', lg: '5', md: '4', sm: '2', xs: '1' }}
+          columns={{ xl: '5', lg: '4', md: '3', sm: '2', xs: '1' }}
         >
           {filteredData.map(product => (
             <Grid item key={product.id} xs={1}>

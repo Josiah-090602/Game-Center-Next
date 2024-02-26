@@ -14,10 +14,21 @@ export default function ProductDetails({ params }) {
     <>
       <Box
         display="flex"
-        sx={{ border: '1px solid black', p: 2, flexDirection: 'column' }}
+        sx={{
+          border: '1px solid black',
+          paddingX: {
+            lg: '15rem',
+            md: '8rem',
+            sm: '1rem',
+            xs: '1rem',
+          },
+          paddingY: '2rem',
+          flexDirection: 'column',
+          bgcolor: 'grey.100',
+        }}
       >
         <PreviewItem item={item} />
-        {/* <OtherProducts items={products} /> */}
+        <OtherProducts items={products} />
       </Box>
     </>
   )

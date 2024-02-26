@@ -1,10 +1,19 @@
 import React from 'react'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import ProductCard from '@/components/store/ProductCard'
 
 export default function OtherProducts({ items }) {
   return (
-    <Box maxWidth="100%" display="flex" alignItems="center">
+    <Box
+      maxWidth="100%"
+      display="flex"
+      flexDirection="column"
+      gap={2}
+      marginTop={4}
+    >
+      <Typography textAlign="left" variant="h4" color="secondary.dark">
+        Other Products
+      </Typography>
       <Grid
         container
         spacing={1}

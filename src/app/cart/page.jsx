@@ -17,6 +17,12 @@ export default function Cart() {
           p: 4,
           display: 'flex',
           flexDirection: 'column',
+          paddingX: {
+            lg: '15rem',
+            md: '8rem',
+            sm: '1rem',
+            xs: '1rem',
+          },
         }}
       >
         <Box display="flex" justifyContent="space-between">

@@ -14,6 +14,7 @@ import {
   increasePreOrder,
   decreasePreOrder,
   addPreOrdertoCarts,
+  buyNow,
 } from '@/redux/productSlice'
 import ActionButtons from './ActionButtons'
 
@@ -33,17 +34,21 @@ export default function PreviewItem({ item }) {
     dispatch(addPreOrdertoCarts(item))
   }
 
+  const handleBuy = () => {
+    dispatch(buyNow(item))
+  }
+
   return (
     <>
       <Box
         sx={{
-          border: '1px solid red',
           boxSizing: 'border-box',
           width: '100%',
           display: 'flex',
           padding: 3,
           flexDirection: { md: 'row', xs: 'column' },
           gap: 2,
+          bgcolor: 'white',
         }}
       >
         <Box
@@ -55,7 +60,8 @@ export default function PreviewItem({ item }) {
             backgroundRepeat: 'no-repeat',
             backgroundImage: `url(${item.image})`,
             backgroundPosition: 'center',
-            border: '1px solid red',
+            borderRadius: 5,
+            border: '1px solid #e0e0e0',
           }}
         ></Box>
 
@@ -114,7 +120,7 @@ export default function PreviewItem({ item }) {
             </Typography>
           </Stack>
 
-          <ActionButtons onclick={handleAddPreOrder} />
+          <ActionButtons preOrder={handleAddPreOrder} buyNow={handleBuy} />
         </Box>
       </Box>
     </>

@@ -30,7 +30,6 @@ export default function Quantity({ item, onDecrease, onIncrease }) {
           -
         </Button>
         <Box
-          helperText="Incorrect entry."
           sx={{
             display: 'flex',
             alignItems: 'center',
