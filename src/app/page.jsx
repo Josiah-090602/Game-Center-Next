@@ -6,6 +6,7 @@ import About from '@/components/home/About'
 import Reasons from '@/components/home/Reasons'
 import Brands from '@/components/home/Brands'
 import Customer from '@/components/home/Customer'
+import ContactForm from '@/components/home/ContactForm'
 
 const boxStyles = {
   display: 'flex',
@@ -14,6 +15,7 @@ const boxStyles = {
   boxSizing: 'border-box',
   flexDirection: 'column',
   p: 0,
+  gap: 4,
 }
 
 export default function Home() {
@@ -34,22 +36,6 @@ export default function Home() {
         <Intro />
       </Box>
 
-      {/* //Sponsors */}
-      <Box
-        sx={{
-          ...boxStyles,
-          bgcolor: 'grey.200',
-          flexDirection: 'column',
-          gap: 3,
-          padding: { md: '4rem', xs: '2rem' },
-        }}
-      >
-        <Typography variant="h4" color="secondary.dark">
-          Our Sponsors
-        </Typography>
-
-        <Sponsors />
-      </Box>
       {/* //About Us */}
       <Box sx={{ ...boxStyles }}>
         <About boxStyles={boxStyles} />
@@ -61,13 +47,25 @@ export default function Home() {
           ...boxStyles,
           bgcolor: 'grey.100',
           padding: { md: '4rem', xs: '2rem' },
-          gap: 3,
         }}
       >
         <Typography variant="h4" color="secondary.dark">
           Why Choose Us?
         </Typography>
         <Reasons />
+      </Box>
+      {/*Our Happy customers*/}
+      <Box
+        sx={{
+          ...boxStyles,
+          bgcolor: 'grey.100',
+          padding: 4,
+        }}
+      >
+        <Typography variant="h4" color="secondary.dark">
+          Our Happy Customers
+        </Typography>
+        <Customer />
       </Box>
 
       {/* Partners */}
@@ -83,21 +81,31 @@ export default function Home() {
 
         <Brands />
       </Box>
-
-      {/*Our Happy customers*/}
+      {/* //Sponsors */}
       <Box
         sx={{
           ...boxStyles,
           bgcolor: 'grey.200',
-          padding: 4,
-          gap: 3,
+          flexDirection: 'column',
+
+          padding: { md: '4rem', xs: '2rem' },
         }}
       >
         <Typography variant="h4" color="secondary.dark">
-          Our Happy Customers
+          Our Sponsors
         </Typography>
 
-        <Customer />
+        <Sponsors />
+      </Box>
+
+      {/*Reach Us*/}
+      <Box
+        sx={{
+          ...boxStyles,
+          padding: 4,
+        }}
+      >
+        <ContactForm />
       </Box>
     </>
   )

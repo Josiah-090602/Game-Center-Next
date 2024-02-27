@@ -2,7 +2,8 @@ import React from 'react'
 import { Box, Grid, Typography } from '@mui/material'
 import ProductCard from '@/components/store/ProductCard'
 
-export default function OtherProducts({ items }) {
+export default function OtherProducts({ items, itemPreview }) {
+  let filtered = items.filter(product => product.id !== itemPreview.id)
   return (
     <Box
       maxWidth="100%"
@@ -20,7 +21,7 @@ export default function OtherProducts({ items }) {
         boxSizing="border-box"
         columns={{ xl: '5', lg: '5', md: '4', sm: '2', xs: '1' }}
       >
-        {items.map(product => (
+        {filtered.slice(0, 10).map(product => (
           <Grid item key={product.id} xs={1}>
             <ProductCard product={product} />
           </Grid>

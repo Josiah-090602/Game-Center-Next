@@ -12,7 +12,7 @@ import {
 import { styled } from '@mui/material/styles'
 import Actions from './Actions'
 import Link from 'next/link'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addProduct, addPreOrder } from '@/redux/productSlice'
 
 export const LineClamp = styled(Typography)(() => ({
@@ -23,7 +23,6 @@ export const LineClamp = styled(Typography)(() => ({
 }))
 
 export default function ProductCard({ product }) {
-  const products = useSelector(state => state.products)
   const dispatch = useDispatch()
 
   const handleAddProduct = () => {

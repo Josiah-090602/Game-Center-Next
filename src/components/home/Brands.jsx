@@ -19,7 +19,7 @@ export default function Brands() {
         <Grid item key={index} sx={{ boxSizing: 'border-box' }} xs={1}>
           <Box
             sx={{
-              opacity: '0.7',
+              opacity: '1',
               backgroundImage: `url(${brand})`,
               height: { md: '150px', sm: '100px', xs: '80px' },
               objectFit: 'cover',

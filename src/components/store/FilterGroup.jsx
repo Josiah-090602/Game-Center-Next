@@ -13,7 +13,8 @@ export default function FilterGroup({
         display="flex"
         justifyContent="space-between"
         height="auto"
-        flexDirection={{ md: 'row', xs: 'column' }}
+        width={{ md: '100%', xs: '100%' }}
+        flexDirection={{ md: 'row', xs: 'column-reverse' }}
         gap={1}
       >
         <ButtonGroup

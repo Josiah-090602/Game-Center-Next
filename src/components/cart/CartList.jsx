@@ -28,7 +28,6 @@ export default function CartList({ cartItems }) {
           display: 'flex',
           flexDirection: 'column',
           gap: '10px',
-
           padding: '10px',
           overflowY: 'scroll',
           scrollBehavior: 'smooth',
