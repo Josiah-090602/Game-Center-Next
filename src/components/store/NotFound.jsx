@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
+import Image from 'next/image'
 
 export default function NotFound() {
   return (
@@ -7,7 +8,7 @@ export default function NotFound() {
       display="flex"
       sx={{
         width: '100%',
-        height: '74.5vh',
+        height: 'calc(100vh - 15rem)',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',

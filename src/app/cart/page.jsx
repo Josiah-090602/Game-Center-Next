@@ -13,7 +13,7 @@ export default function Cart() {
     <>
       <Box
         sx={{
-          height: '85.5vh',
+          height: 'calc(100vh-9rem)',
           p: 4,
           display: 'flex',
           flexDirection: 'column',

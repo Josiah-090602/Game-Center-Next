@@ -44,7 +44,7 @@ export default function Intro() {
           href="/store"
           sx={{ borderRadius: '0', width: '10rem', marginTop: '1rem' }}
         >
-          Let's Shop
+          Let&apos;s Shop
         </Button>
       </Box>
     </>

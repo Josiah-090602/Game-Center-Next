@@ -7,12 +7,12 @@ export default function FilterGroup({
   searchQuery,
   searchOnChage,
 }) {
+  const buttonStyles = { fontSize: { md: '0.8rem', xs: '0.7rem' } }
   return (
     <>
       <Box
         display="flex"
         justifyContent="space-between"
-        height="auto"
         boxSizing="border-box"
         flexDirection={{ md: 'row', xs: 'column-reverse' }}
         gap={1}
@@ -28,11 +28,11 @@ export default function FilterGroup({
           color="secondary"
           sx={{ height: '40px !important' }}
           aria-label=""
-          width={{ md: '50%', xs: '100%' }}
         >
           <Button
             variant={!activeFilter ? 'contained' : 'outlined'}
             onClick={() => setActiveFilter('')}
+            sx={buttonStyles}
           >
             All
           </Button>
@@ -41,6 +41,7 @@ export default function FilterGroup({
               activeFilter === "men's clothing" ? 'contained' : 'outlined'
             }
             onClick={() => setActiveFilter("men's clothing")}
+            sx={buttonStyles}
           >
             Mens
           </Button>
@@ -49,18 +50,21 @@ export default function FilterGroup({
               activeFilter === "women's clothing" ? 'contained' : 'outlined'
             }
             onClick={() => setActiveFilter("women's clothing")}
+            sx={buttonStyles}
           >
             Womens
           </Button>
           <Button
             variant={activeFilter === 'jewelery' ? 'contained' : 'outlined'}
             onClick={() => setActiveFilter('jewelery')}
+            sx={buttonStyles}
           >
             Jewelries
           </Button>
           <Button
             variant={activeFilter === 'electronics' ? 'contained' : 'outlined'}
             onClick={() => setActiveFilter('electronics')}
+            sx={buttonStyles}
           >
             Electronics
           </Button>
