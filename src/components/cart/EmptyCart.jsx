@@ -17,7 +17,7 @@ export default function EmptyCart() {
       >
         <img src="/emptycart.svg" alt="" width="300px" />
         <Typography variant="h6" color="initial">
-          There's no item in you cart
+          There&apos;s no item in you cart
         </Typography>
       </Box>
     </>

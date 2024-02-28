@@ -39,7 +39,7 @@ export default function News() {
           color="secondary.dark"
           sx={{ fontWeight: 'bold' }}
         >
-          What's New
+          What&apos;s New
         </Typography>
         <Grid
           container

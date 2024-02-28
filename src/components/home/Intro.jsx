@@ -34,7 +34,7 @@ export default function Intro() {
           color="secondary.contrastText"
           textAlign="center"
         >
-          “Where Trends Collide: Explore Fashion, Electronics, and More!”
+          Where Trends Collide: Explore Fashion, Electronics, and More!
         </Typography>
 
         <Button
