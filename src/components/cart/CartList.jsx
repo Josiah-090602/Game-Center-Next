@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Typography, Box, Checkbox } from '@mui/material'
+import { Typography, Box, Checkbox, Button } from '@mui/material'
 import CartItem from './CartItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkAllProducts } from '@/redux/productSlice'
+import { clearCartItems } from '@/redux/productSlice'
 
 export default function CartList({ cartItems }) {
   const dispatch = useDispatch()
@@ -10,18 +11,29 @@ export default function CartList({ cartItems }) {
   const handleCheckAll = () => {
     dispatch(checkAllProducts(cartItems))
   }
+  const handleClear = () => {
+    dispatch(clearCartItems())
+  }
 
   const checked = cartItems.every(item => item.checked === true)
 
   return (
     <>
-      <Box display="flex" alignItems="center">
-        <Checkbox
-          label="Selec All"
-          onChange={handleCheckAll}
-          checked={checked}
-        />
-        <Typography>Select All</Typography>
+      <Box display="flex" alignItems="center" justifyContent="space-between">
+        <Box display="flex" alignItems="center">
+          <Checkbox
+            label="Select All"
+            onChange={handleCheckAll}
+            checked={checked}
+          />
+          <Typography>Select All</Typography>
+        </Box>
+
+        <Box>
+          <Button onClick={handleClear} variant="outlined" color="secondary">
+            Clear Cart
+          </Button>
+        </Box>
       </Box>
       <Box
         sx={{

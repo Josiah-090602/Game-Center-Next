@@ -29,10 +29,6 @@ export default function Cart() {
           <Typography variant="h5" color="secondary.dark">
             <strong> My Shopping Cart</strong>
           </Typography>
-
-          <Button variant="outlined" color="primary" href="/store">
-            Continue Shopping
-          </Button>
         </Box>
 
         <Divider

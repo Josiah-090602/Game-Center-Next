@@ -37,7 +37,6 @@ const productSlice = createSlice({
         state.carts.push(addedProduct)
         toast.success('New product added to cart')
       }
-      console.log(state.carts)
     },
     removeProduct: (state, action) => {
       const updatedCart = state.carts.filter(
@@ -104,7 +103,6 @@ const productSlice = createSlice({
         state.carts[itemIndex].quantity += state.preOrderedCount
         toast.info('Added a product quantity')
       } else if (state.preOrderedCount > 0) {
-        console.log(state.carts)
         const preOrdered = {
           ...state.preOrdered,
           quantity: state.preOrderedCount,

@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         style={{
           margin: '0',
           backgroundColor: '#FBFCFC',
-          width: '100%',
+          boxSizing: 'border-box',
         }}
       >
         <ToastContainer position="bottom-right" />
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
                 sx={{
                   marginTop: '5rem ',
                   minHegiht: '100%',
-                  boxSizing: 'border-box',
+                  width: '100%',
                 }}
               >
                 {children}

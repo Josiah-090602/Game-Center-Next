@@ -11,11 +11,19 @@ export default function Intro() {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h5" color="secondary.contrastText">
+        <Typography
+          variant="h5"
+          color="secondary.contrastText"
+          sx={{ fontSize: { md: '2rem', xs: '1.5rem' } }}
+        >
           Welcome to
         </Typography>
 
-        <Typography variant="h3" color="primary.dark">
+        <Typography
+          variant="h3"
+          color="primary.dark"
+          sx={{ fontSize: { md: '3.5rem', sm: '3rem', xs: '2rem' } }}
+        >
           <strong>SHOP</strong>
           <span style={{ color: 'white' }}>Center</span>
         </Typography>

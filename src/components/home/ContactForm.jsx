@@ -96,7 +96,12 @@ export default function ContactForm() {
           fullWidth
         />
 
-        <Box display="flex" justifyContent="space-between">
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          flexDirection={{ sm: 'row', xs: 'column-reverse' }}
+          gap={1}
+        >
           <Socials />
 
           <Button

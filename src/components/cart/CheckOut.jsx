@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Box, Container, Button, Typography } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
-import { clearCartItems, getTotalPrice } from '@/redux/productSlice'
+import { getTotalPrice } from '@/redux/productSlice'
 
 export default function CheckOut() {
   const cart = useSelector(state => state.products)
@@ -11,29 +11,19 @@ export default function CheckOut() {
     dispatch(getTotalPrice())
   }, [cart, cart.checked])
 
-
-
-  const handleClear = () => {
-    dispatch(clearCartItems())
-  }
   return (
     <Box
       display="flex"
       sx={{
-        justifyContent: 'space-between',
+        justifyContent: 'end',
         height: '20%',
         alignItems: 'center',
         p: 3,
       }}
     >
-      <Box height="100%">
-        <Button onClick={handleClear} variant="outlined" color="secondary">
-          Clear Cart
-        </Button>
-      </Box>
       <Box
         sx={{
-          width: '20rem',
+          width: { xs: '100%', sm: '20rem' },
           display: 'flex',
           flexDirection: 'column',
           gap: 1,

@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { Typography, Box, ButtonGroup, Button } from '@mui/material'
-
 import Items from '../../components/store/Items'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProductsAsync } from '@/redux/productSlice'
@@ -45,7 +44,6 @@ export default function Store() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        width: '100%',
         paddingBottom: 2,
         paddingX: {
           lg: '15rem',
@@ -54,17 +52,14 @@ export default function Store() {
           xs: '1rem',
         },
         bgcolor: 'grey.100',
-        boxSizing: 'border-box',
       }}
     >
-      <Box display="flex" sx={{ marginY: '1rem', gap: 2 }}>
-        <FilterGroup
-          searchQuery={searchQuery}
-          searchOnChage={handleSearch}
-          activeFilter={activeFilter}
-          setActiveFilter={setActiveFilter}
-        />
-      </Box>
+      <FilterGroup
+        searchQuery={searchQuery}
+        searchOnChage={handleSearch}
+        activeFilter={activeFilter}
+        setActiveFilter={setActiveFilter}
+      />
 
       <Items activeFilter={activeFilter} productData={queriedProducts} />
       {console.log(combinedData)}

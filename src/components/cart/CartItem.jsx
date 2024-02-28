@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Box, Rating, Checkbox } from '@mui/material'
+import { Button, Card, Box, Rating, Checkbox, IconButton } from '@mui/material'
 import { LineClamp } from '@/components/store/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -8,6 +8,7 @@ import {
   addProduct,
   checkProduct,
 } from '@/redux/productSlice'
+import ClearIcon from '@mui/icons-material/Clear'
 
 import Quantity from './Quantity'
 export default function CartItem({ item }) {
@@ -36,19 +37,27 @@ export default function CartItem({ item }) {
       <Card
         sx={{
           p: 4,
-          minHeight: '100px',
+          minHeight: { md: '100px', xs: '300px' },
           display: 'flex',
           alignItems: 'center',
           gap: '1rem',
           borderRadius: '0',
           boxShadow: '.5px',
-          justifyContent: 'space-between',
+          alignItems: 'center',
+          justifyContent: { md: 'space-between' },
+          flexDirection: { xs: 'column', md: 'row' },
+          position: 'relative',
         }}
       >
         <Checkbox
           label={item.title}
           checked={item.checked}
           onChange={handleCheckProduct}
+          sx={{
+            position: { xs: 'absolute', md: 'relative' },
+            top: { xs: '10px', md: '0' },
+            left: { xs: '10px', md: '0' },
+          }}
         />
         <img
           src={item.image}
@@ -59,7 +68,14 @@ export default function CartItem({ item }) {
             objectFit: 'contain',
           }}
         />
-        <Box sx={{ width: '30rem' }}>
+        <Box
+          sx={{
+            width: { md: '30rem', xs: '100%' },
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: { xs: 'center', md: 'flex-start' },
+          }}
+        >
           <LineClamp
             style={{ WebkitLineClamp: 1, fontSize: '14px' }}
             variant="subtitle1"
@@ -87,7 +103,25 @@ export default function CartItem({ item }) {
           <strong>$ {itemPricePerQuantity}</strong>
         </LineClamp>
 
-        <Button onClick={handleRemoveProduct}>Remove</Button>
+        <IconButton
+          sx={{
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            display: { xs: 'block', md: 'none' },
+          }}
+          aria-label=""
+          onClick={handleRemoveProduct}
+        >
+          <ClearIcon color="error" />
+        </IconButton>
+
+        <Button
+          sx={{ display: { xs: 'none', md: 'block' } }}
+          onClick={handleRemoveProduct}
+        >
+          Remove
+        </Button>
       </Card>
     </>
   )

@@ -16,6 +16,7 @@ export default function NavLink({ link }) {
         disableRipple
         sx={{
           color: pathName === link.path ? 'primary.main' : 'white',
+          minWidth: { md: 'auto', xs: '200px' },
         }}
       >
         {link.name}

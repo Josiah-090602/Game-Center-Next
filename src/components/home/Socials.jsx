@@ -6,7 +6,7 @@ import XIcon from '@mui/icons-material/X'
 
 export default function Socials() {
   return (
-    <Stack direction="row">
+    <Stack direction="row" justifyContent="center">
       <IconButton color="primary" aria-label="facebook" size="large">
         <FacebookIcon />
       </IconButton>

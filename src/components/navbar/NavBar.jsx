@@ -1,11 +1,11 @@
 'use client'
 import React, { useState } from 'react'
-import { Box, Typography, Stack, IconButton } from '@mui/material'
+import { Box } from '@mui/material'
 import Links from './links/Links'
 import Profile from './Profile'
 import Cart from './Cart'
-import MenuIcon from '@mui/icons-material/Menu'
 import Logo from './Logo'
+import SideDrawer from './SideDrawer'
 
 export default function NavBar() {
   return (
@@ -28,9 +28,7 @@ export default function NavBar() {
         {' '}
         <Logo />
         <Box display={{ md: 'none', sm: 'flex' }}>
-          <IconButton color="primary">
-            <MenuIcon />
-          </IconButton>
+          <SideDrawer />
         </Box>
         <Box
           display={{ md: 'flex', xs: 'none' }}

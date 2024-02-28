@@ -14,7 +14,7 @@ export default function Links() {
     <Box>
       <Stack
         display={{ md: 'flex' }}
-        direction="row"
+        direction={{ md: 'row', xs: 'column' }}
         color="inherit"
         spacing={3}
       >

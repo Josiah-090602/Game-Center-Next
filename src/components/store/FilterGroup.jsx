@@ -13,9 +13,15 @@ export default function FilterGroup({
         display="flex"
         justifyContent="space-between"
         height="auto"
-        width={{ md: '100%', xs: '100%' }}
+        boxSizing="border-box"
         flexDirection={{ md: 'row', xs: 'column-reverse' }}
         gap={1}
+        width="100%"
+        position="sticky"
+        paddingTop={2}
+        top={80}
+        bgcolor="grey.100"
+        zIndex={1}
       >
         <ButtonGroup
           disableElevation
