@@ -2,15 +2,19 @@ import React from 'react'
 import { Button, Box } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
-export default function ActionButtons({ preOrder, buyNow }) {
+export default function ActionButtons({ count, preOrder, buyNow }) {
   const style = {
-    width: '200px',
+    width: { md: '200px', xs: '100%' },
     height: '60px',
     borderRadius: '0',
   }
+
   return (
     <>
-      <Box display="flex" sx={{ gap: 2 }}>
+      <Box
+        display="flex"
+        sx={{ gap: 2, flexDirection: { xs: 'column', md: 'row' } }}
+      >
         <Button
           sx={style}
           disableElevation
@@ -28,7 +32,7 @@ export default function ActionButtons({ preOrder, buyNow }) {
           disableElevation
           variant="contained"
           color="primary"
-          href="/cart"
+          href={count === 0 ? '' : '/cart'}
           target="_self"
         >
           Buy Now

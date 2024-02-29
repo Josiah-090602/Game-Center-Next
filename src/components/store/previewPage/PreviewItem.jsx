@@ -120,7 +120,11 @@ export default function PreviewItem({ item }) {
             </Typography>
           </Stack>
 
-          <ActionButtons preOrder={handleAddPreOrder} buyNow={handleBuy} />
+          <ActionButtons
+            count={count}
+            preOrder={handleAddPreOrder}
+            buyNow={handleBuy}
+          />
         </Box>
       </Box>
     </>

@@ -31,9 +31,10 @@ export default function ContactForm() {
           display: 'flex',
           flexDirection: 'column',
           gap: { md: 3, xs: 2 },
-          width: { md: '50%', xs: '70%' },
+          width: { xs: '100%', md: '50%' },
           margin: 'auto',
           borderRadius: '10px',
+          boxSizing: 'border-box',
         }}
       >
         <Typography variant="h4" color="secondary.dark">
