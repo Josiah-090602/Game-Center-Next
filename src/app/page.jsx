@@ -46,7 +46,7 @@ export default function Home() {
         sx={{
           ...boxStyles,
           bgcolor: 'grey.100',
-          padding: { md: '4rem', xs: '2rem' },
+          padding: { md: 4, xs: '2rem' },
         }}
       >
         <Typography variant="h4" color="secondary.dark">
@@ -63,13 +63,13 @@ export default function Home() {
         }}
       >
         <Typography variant="h4" color="secondary.dark">
-          Our Happy Customers
+          Feedbacks
         </Typography>
         <Customer />
       </Box>
 
       {/* Partners */}
-      <Box sx={{ ...boxStyles, padding: { md: '4rem', xs: '2rem' } }}>
+      <Box sx={{ ...boxStyles, padding: 4 }}>
         <Typography
           variant="h4"
           color="secondary.dark"
@@ -88,7 +88,7 @@ export default function Home() {
           bgcolor: 'grey.200',
           flexDirection: 'column',
 
-          padding: { md: '4rem', xs: '2rem' },
+          padding: 4,
         }}
       >
         <Typography variant="h4" color="secondary.dark">

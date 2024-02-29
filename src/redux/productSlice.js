@@ -144,6 +144,7 @@ const productSlice = createSlice({
       )
       if (itemIndex >= 0 && state.preOrderedCount > 0) {
         state.carts[itemIndex].quantity += state.preOrderedCount
+        state.carts[itemIndex].checked = true
         toast.info('Added a product quantity')
       } else if (state.preOrderedCount > 0) {
         console.log(state.carts)

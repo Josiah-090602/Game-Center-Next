@@ -43,7 +43,7 @@ export default function Customer() {
       direction={{ md: 'row', xs: 'column' }}
       boxSizing="border-box"
       spacing={2}
-      width="80%"
+      width={{ md: '80%', xs: '100%' }}
     >
       {feedbacks.map((feedback, index) => (
         <Card

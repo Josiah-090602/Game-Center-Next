@@ -31,6 +31,7 @@ export default function Reasons() {
       spacing={{ lg: 2, xs: 1 }}
       direction={{ lg: 'row', xs: 'column' }}
       divider={<Divider orientation="vertical" flexItem />}
+      width={{ md: '80%', xs: '100%' }}
     >
       {data.map((item, index) => (
         <Paper
