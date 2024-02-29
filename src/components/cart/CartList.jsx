@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Typography, Box, Checkbox, Button } from '@mui/material'
 import CartItem from './CartItem'
 import { useDispatch, useSelector } from 'react-redux'
-import { checkAllProducts } from '@/redux/productSlice'
-import { clearCartItems } from '@/redux/productSlice'
+import { checkAllProducts, clearCartItems } from '@/redux/productSlice'
 
 export default function CartList({ cartItems }) {
   const dispatch = useDispatch()
@@ -43,8 +42,8 @@ export default function CartList({ cartItems }) {
           padding: '10px',
           overflowY: 'scroll',
           scrollBehavior: 'smooth',
-          height: '80%',
-          scrollbarWidth: cartItems.length > 3 ? 'thin' : 'none',
+          height: 'calc(100vh - 57.5vh)',
+          scrollbarWidth: cartItems.length > 2 ? 'thin' : 'none',
         }}
       >
         {cartItems.map(item => (

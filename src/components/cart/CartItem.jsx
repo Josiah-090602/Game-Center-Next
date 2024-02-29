@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   removeProduct,
   decreaseQuantity,
+  increaseQuantity,
   addProduct,
   checkProduct,
 } from '@/redux/productSlice'
@@ -24,7 +25,7 @@ export default function CartItem({ item }) {
   }
 
   const handleIncrease = () => {
-    dispatch(addProduct(item))
+    dispatch(increaseQuantity(item))
   }
 
   const handleCheckProduct = () => {

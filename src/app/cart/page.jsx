@@ -14,7 +14,7 @@ export default function Cart() {
       <Box
         sx={{
           height: 'calc(100vh-9rem)',
-          p: 4,
+          paddingY: 4,
           display: 'flex',
           flexDirection: 'column',
           paddingX: {

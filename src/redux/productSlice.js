@@ -46,13 +46,18 @@ const productSlice = createSlice({
       state.carts = updatedCart
       toast.error('Product removed from cart')
     },
+    increaseQuantity: (state, action) => {
+      const itemIndex = state.carts.findIndex(
+        item => item.id === action.payload.id,
+      )
+      state.carts[itemIndex].quantity += 1
+    },
     decreaseQuantity: (state, action) => {
       const itemIndex = state.carts.findIndex(
         item => item.id === action.payload.id,
       )
       if (state.carts[itemIndex].quantity > 1) {
         state.carts[itemIndex].quantity -= 1
-        toast.info('Decreased a product quantity')
       } else if (state.carts[itemIndex].quantity === 1) {
         const updatedCart = state.carts.filter(
           carts => carts.id !== action.payload.id,
@@ -179,6 +184,7 @@ export const {
   addProduct,
   removeProduct,
   decreaseQuantity,
+  increaseQuantity,
   clearCartItems,
   getTotalPrice,
   addPreOrder,

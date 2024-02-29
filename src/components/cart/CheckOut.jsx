@@ -11,14 +11,16 @@ export default function CheckOut() {
     dispatch(getTotalPrice())
   }, [cart, cart.checked])
 
+  console.log(cart.carts.length)
   return (
     <Box
       display="flex"
       sx={{
         justifyContent: 'end',
-        height: '20%',
+        height: '14vh',
         alignItems: 'center',
-        p: 3,
+        p: 2,
+        borderTop: cart.carts.length >= 3 && '1px solid #e0e0e0',
       }}
     >
       <Box
