@@ -46,8 +46,7 @@ export default function CartList({ cartItems }) {
           scrollbarWidth: cartItems.length > 2 ? 'thin' : 'none',
         }}
       >
-        {cartItems.map(item => (
-          // <p key={item.id}>{item.title}</p>
+        {[...cartItems].reverse().map(item => (
           <CartItem key={item.id} item={item} />
         ))}
       </Box>

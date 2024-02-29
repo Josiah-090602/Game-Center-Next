@@ -1,7 +1,16 @@
 'use client'
 import React, { useState } from 'react'
 
-import { Box, Button, TextField, Paper, Stack, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  TextField,
+  Paper,
+  Stack,
+  Typography,
+  InputAdornment,
+  Divider,
+} from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
 import EmailIcon from '@mui/icons-material/Email'
@@ -28,7 +37,7 @@ export default function ContactForm() {
         }}
       >
         <Typography variant="h4" color="secondary.dark">
-          Send us a message
+          Contact Us
         </Typography>
         <Stack
           direction={{ md: 'row', xs: 'column' }}

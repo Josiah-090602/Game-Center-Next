@@ -16,7 +16,7 @@ export default function NotFound() {
         opacity: 0.5,
       }}
     >
-      <img src="/notfound.svg" alt="" width="200px" />
+      <img src="/notfound.svg" alt="" width="300px" />
       <Typography variant="h6" color="initial">
         Item Not Found
       </Typography>

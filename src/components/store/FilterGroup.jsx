@@ -1,5 +1,12 @@
 import React from 'react'
-import { Button, ButtonGroup, Box, TextField } from '@mui/material'
+import {
+  Button,
+  ButtonGroup,
+  Box,
+  TextField,
+  InputAdornment,
+} from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
 export default function FilterGroup({
   activeFilter,
@@ -18,7 +25,7 @@ export default function FilterGroup({
         gap={1}
         width="100%"
         position="sticky"
-        paddingTop={2}
+        paddingY={2}
         top={80}
         bgcolor="grey.100"
         zIndex={1}
@@ -74,10 +81,17 @@ export default function FilterGroup({
           value={searchQuery}
           label="Search Product"
           variant="outlined"
-          sx={{ width: { md: '40%', xs: '100%' }, minHeight: '50px' }}
+          sx={{ width: { md: '40%', xs: '100%' } }}
           color="secondary"
           onChange={searchOnChage}
           size="small"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
         />
       </Box>
     </>

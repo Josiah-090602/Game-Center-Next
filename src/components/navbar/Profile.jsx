@@ -15,6 +15,11 @@ import {
   IconButton,
 } from '@mui/material'
 
+import ListItemIcon from '@mui/material/ListItemIcon'
+import PersonAdd from '@mui/icons-material/PersonAdd'
+import Settings from '@mui/icons-material/Settings'
+import Logout from '@mui/icons-material/Logout'
+
 export default function Profie() {
   const [open, setOpen] = React.useState(false)
   const anchorRef = React.useRef(null)
@@ -93,9 +98,38 @@ export default function Profie() {
                   aria-labelledby="composition-button"
                   onKeyDown={handleListKeyDown}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <Avatar
+                      variant="circular"
+                      src="/profile.jpg"
+                      alt=""
+                      sx={{
+                        width: { md: '30px', xs: '3rem' },
+                        height: { md: '30px', xs: '3rem' },
+                        marginRight: '10px',
+                      }}
+                    />
+                    My account
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem onClick={handleClose}>
+                    <ListItemIcon>
+                      <PersonAdd size="small" />
+                    </ListItemIcon>
+                    Add another account
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <ListItemIcon>
+                      <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                  </MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>

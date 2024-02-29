@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Typography, Box, Divider, Container, Button } from '@mui/material'
+import { Typography, Box, Divider } from '@mui/material'
 import { useSelector } from 'react-redux'
 import CartList from '@/components/cart/CartList'
 import EmptyCart from '@/components/cart/EmptyCart'
